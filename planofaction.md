@@ -25,10 +25,10 @@ SentinelSport is an AI-powered sports media protection platform designed to prov
 ## 3. 10-Day Build Roadmap
 
 ### Phase 1: Infrastructure & Security (Days 1-2)
-- [ ] **Day 1: Setup Core Environment**
-    - [ ] Initialize FastAPI backend and React frontend.
-    - [ ] Configure PostgreSQL with `pgvector` extension.
-    - [ ] Setup Docker Compose for localized development (Redis, DB, API).
+- [x] **Day 1: Setup Core Environment**
+    - [x] Initialize FastAPI backend and React frontend.
+    - [x] Configure PostgreSQL with `pgvector` extension.
+    - [x] Setup Docker Compose for localized development (Redis, DB, API).
 - [ ] **Day 2: Asset Management & C2PA**
     - [ ] Implement media upload API (Supabase Storage/Cloudflare R2).
     - [ ] Integrate `c2pa-python` for cryptographic content signing.
