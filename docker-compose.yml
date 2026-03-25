@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # Local Postgres is now optional as we use Neon (configured in backend/.env)
+  # db:
+  #   image: ankane/pgvector:latest
+  #   container_name: seekr_db
+  #   environment:
+  #     POSTGRES_DB: seekr
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+  # Local Redis is now optional as we use Upstash (configured in backend/.env)
+  # redis:
+  #   image: redis:latest
+  #   container_name: seekr_redis
+  #   ports:
+  #     - "6379:6379"
+
+  backend:
+    build: ./backend
+    container_name: seekr_backend
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+    # depends_on:
+    #   - db
+    #   - redis
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: seekr_frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
