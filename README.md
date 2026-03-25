@@ -74,7 +74,7 @@ Seekr provides a solution by enabling automated detection of duplicated or modif
 - OpenCV (optional preprocessing)
 
 ### Database
-- MongoDB (asset storage and metadata)
+- PostgreSQL (via Supabase/Neon)
 
 ### Vector Search
 - FAISS or cosine similarity (custom implementation)
@@ -118,7 +118,7 @@ seekr/
 ### Prerequisites
 
 - Node.js / Python installed
-- MongoDB instance running
+- PostgreSQL instance (Supabase/Neon)
 
 ### Backend Setup
 
